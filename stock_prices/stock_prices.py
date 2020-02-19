@@ -3,7 +3,17 @@
 import argparse
 
 def find_max_profit(prices):
-  pass
+	min_index = 0
+  # we cannot buy and sell the same stock, so default max profit is the second item - the first item
+	max_profit = (prices[1] - prices[0])
+	for i in range(len(prices)):
+		# check for a new minimum buy price, excluding the last as we cannot buy the last item
+		if prices[i] < prices[min_index] and i != len(prices) - 1:
+			min_index = i
+		# check that each buy/sell represents and increase in profit, and that we are not buying and selling the same stock
+		if prices[i] - prices[min_index] > max_profit and i != min_index:
+			max_profit = prices[i] - prices[min_index]
+	return max_profit
 
 
 if __name__ == '__main__':
