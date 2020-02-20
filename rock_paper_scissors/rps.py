@@ -3,8 +3,18 @@
 import sys
 
 def rock_paper_scissors(n):
-  pass 
+	options = ['rock', 'paper', 'scissors']
+	possibilities = []
 
+	def generate(input, n):
+		if n == 0:
+			possibilities.append(input)
+		else:
+			for i in options:
+				generate(input + [i], n - 1)
+
+	generate([], n)
+	return possibilities
 
 if __name__ == "__main__":
   if len(sys.argv) > 1:
