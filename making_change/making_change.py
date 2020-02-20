@@ -15,3 +15,4 @@ if __name__ == "__main__":
     print("There are {ways} ways to make {amount} cents.".format(ways=making_change(amount, denominations), amount=amount))
   else:
     print("Usage: making_change.py [amount]")
+
