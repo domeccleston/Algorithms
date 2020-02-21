@@ -6,7 +6,8 @@ from collections import namedtuple
 Item = namedtuple('Item', ['index', 'size', 'value'])
 
 def knapsack_solver(items, capacity):
-  pass
+  for item in items:
+    print(item[0], (item[2] / item[1]))
   
 
 if __name__ == '__main__':

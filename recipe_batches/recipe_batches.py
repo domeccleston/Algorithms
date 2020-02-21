@@ -2,8 +2,18 @@
 
 import math
 
-def recipe_batches(recipe, ingredients):
-  pass 
+def recipe_batches(recipe: dict, ingredients: dict) -> int:
+	''' Calculate how many of a given recipe can be formed from some ingredients. '''
+	min = math.inf
+	for k, v in recipe.items():
+		try:
+			possible_batches = ingredients[k] // recipe[k]
+		# if we are missing an ingredient, we can't make the recipe
+		except KeyError:
+			return 0
+		if possible_batches < min:
+			min = possible_batches
+	return min
 
 
 if __name__ == '__main__':
